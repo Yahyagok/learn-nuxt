@@ -1,10 +1,7 @@
-
-
-
 <template>
   <div>
       <SearchJokes v-on:search-text="searchText" /> 
-    <Joke v-for="joke in jokes" :key="joke.id" :id="joke.id" :joke="joke.joke"/> 
+    <Joke v-for="joke in jokes" :key="joke.id" :id="joke.id" :joke="joke.joke" /> 
   </div>
 </template>
 
@@ -32,6 +29,7 @@ export default {
     try {
       const res = await axios.get('https://icanhazdadjoke.com/search', config);
      this.jokes = res.data.results
+     console.log(this.jokes)
     } catch (error) {
       console.log(error)
     }
